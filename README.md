@@ -7,13 +7,16 @@
 <details>
   <summary>Instructions for Linux</summary>
 
-1. If necessary, install dependent packages
+0. Create ".env" file with your login and password for [your account](https://lks.siriusuniversity.ru/login):
+> Example is located at: **.env.example**
+
+1. If necessary, install dependent packages:
   
 ```linux
 pip install -r requirements.txt 
 ```
 
-2Run bash command in the root folder to get keywords from test file:
+2. Run bash command in the root folder to get keywords from test file:
  
 ```linux
 python parser/main.py 
