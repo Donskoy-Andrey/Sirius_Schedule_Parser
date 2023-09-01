@@ -4,7 +4,7 @@ from typing import Optional
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from params import *
-from default_classes import ResponseCode
+from utils.default_classes import ResponseCode
 
 
 def login():

@@ -1,6 +1,6 @@
 from drawing import create_html
 from parser import parse_website
-from default_classes import ResponseCode
+from utils.default_classes import ResponseCode
 
 
 def main():
