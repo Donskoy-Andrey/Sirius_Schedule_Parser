@@ -4,6 +4,7 @@ from typing import Optional
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from params import *
+from default_classes import ResponseCode
 
 
 def login():
@@ -53,7 +54,7 @@ def parse_month(html: str) -> Optional[str]:
     return text
 
 
-def parse_website() -> None:
+def parse_website() -> ResponseCode:
     # Login to the page
     login()
     driver.get(SCHEDULE_PAGE)
@@ -133,7 +134,13 @@ def parse_website() -> None:
         dfs.append(df)
 
     # Concat all months
-    df = pd.concat(dfs)
+    try:
+        df = pd.concat(dfs)
 
-    # Save data
-    df.to_csv(CSV_FILE_NAME)
+        # Save data
+        df.to_csv(CSV_FILE_NAME)
+
+    except ValueError:
+        return ResponseCode.EMPTY_DF
+
+    return ResponseCode.NO_ERROR
