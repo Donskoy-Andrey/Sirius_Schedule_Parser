@@ -16,7 +16,7 @@
 pip install -r requirements.txt 
 ```
 
-2. Run bash command in the root folder to get keywords from test file:
+2. Run bash command in the root folder to run script:
  
 ```linux
 python parser/main.py 
