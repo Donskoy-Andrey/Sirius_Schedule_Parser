@@ -54,12 +54,15 @@ def parse_month(html: str) -> Optional[str]:
     return text
 
 
-def parse_website() -> ResponseCode:
+def parse_website(month: int) -> ResponseCode:
     # Login to the page
     login()
     driver.get(SCHEDULE_PAGE)
     time.sleep(2)
     dfs = []
+
+    for _ in range(month-8):
+        html = page(prev_month=True)
 
     while True:
         # Iteration by months

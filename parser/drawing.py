@@ -10,7 +10,8 @@ def create_html() -> None:
     ALL_DAYS = pd.date_range(start="08-28-2023", end="12-31-2023")
     WEEKS = ALL_DAYS
     WEEKS = [WEEKS[i:i+7] for i in range(0, len(WEEKS), 7)]
-    TODAY = dt.datetime.today().strftime("%Y-%m-%d")
+    # TODAY = dt.datetime.today().strftime("%Y-%m-%d")
+    TODAY = pd.to_datetime("08-28-23")
     CURRENT_WEEK = [week for week in WEEKS if TODAY in week][0]
     CURRENT_WEEK_NUM = [NUM for NUM, week in enumerate(WEEKS) if TODAY in week][0]
     NEXT_WEEK = WEEKS[CURRENT_WEEK_NUM + 1]
